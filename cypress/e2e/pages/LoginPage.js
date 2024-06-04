@@ -1,15 +1,20 @@
 const BasePage = require('./BasePage')
 
 class LoginPage extends BasePage {
+
+  constructor() {
+    super()
+  }
   // Define the locators for elements on the login page
   elements = {
     usernameInput: '[data-test="username"]',
     passwordInput: '[data-test="password"]',
-    loginButton: '#login-button'
+    loginButton: '#login-button',
+    errorMessageText: '[data-test="error"]'
   }
 
   // Method to navigate to the login page
-  navigateToLogin() {
+  navigateToLoginPage() {
     this.navigate('/')
   }
 
@@ -28,6 +33,10 @@ class LoginPage extends BasePage {
     this.clickButton(this.elements.loginButton)
   }
 
+  getErrorText() {
+    return this.getText(this.elements.errorMessageText)
+  }
+
   // Method to perform a complete login action
   login(username, password) {
     this.enterUsername(username)
@@ -36,4 +45,4 @@ class LoginPage extends BasePage {
   }
 }
 
-module.exports = new LoginPage()
+module.exports = LoginPage;

@@ -1,6 +1,9 @@
 // cypress/pages/BasePage.js
 
 class BasePage {
+  
+  constructor() {}
+
     // Method to navigate to a specific URL
     navigate(url) {
       cy.navigateToUrl(url)
