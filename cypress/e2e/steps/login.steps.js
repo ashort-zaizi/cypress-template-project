@@ -11,6 +11,20 @@ When('I enter the username {string}', (username) => {
     loginPage.enterUsername(username);
 });
 
+When('I enter the username for {string}', (user) => {
+    const person = cy.fixture(`users/${user}.json`)
+    person.then((username) => {
+        loginPage.enterUsername(username);
+    })
+});
+
+When('I enter the password for {string}', (user) => {
+    const person = cy.fixture(`users/${user}.json`)
+    person.then((password) => {
+        loginPage.enterPassword(password);
+    })
+});
+
 When('I leave the username field empty', () => {
     loginPage.enterUsername('');
 });
