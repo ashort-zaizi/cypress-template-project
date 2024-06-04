@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 Cypress.Commands.add('navigateToUrl', (url) => {
     cy.visit(url);
 })
